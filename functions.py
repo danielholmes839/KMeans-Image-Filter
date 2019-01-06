@@ -1,3 +1,8 @@
+# Daniel Holmes
+# 2018/1/6
+# Functions
+# These are the functions used for the KMeans colour filter
+
 import math
 from PIL import Image
 from sklearn.cluster import KMeans

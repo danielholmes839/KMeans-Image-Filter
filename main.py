@@ -1,3 +1,8 @@
+# Daniel Holmes
+# 2019/1/6
+# KMeans image filter
+# Takes an image from a file or url and reduces it to a certain number of colours
+
 import os
 from functions import kmeans_filter_from_file_path, kmeans_filter_from_url
 
@@ -26,7 +31,7 @@ def url_input():
 
     num_colours = int(input('number of colours: '))                 # number of colours / clusters
 
-    filtered_img = kmeans_filter_from_url(image_url, num_colours, skip)     # get the filtered image
+    filtered_img = kmeans_filter_from_url(image_url, num_colours, skip)                                         # get the filtered image
     filtered_img.save(folder_name + os.sep + 's' + str(skip) + '-' + str(num_colours) + 'clusters.png', 'png')  # save the image as a png
 
 
@@ -35,14 +40,14 @@ while True:
     file_or_url = str(input('image from file or url: '))            # choose to get an image from a url or a file
 
     if file_or_url.lower() == 'file':
-        filtered_img = file_input()
+        file_input()
 
     elif file_or_url.lower() == 'url':
-        filtered_img = url_input()
+        url_input()
 
     else:
-        print('Sorry you did not enter a valid option.')
-        continue                                                    # new loop
+        print('Sorry you did not enter a valid option. Valid options are: file, url')
+        continue  # restart
 
     yes_or_no = str(input('would you like to process more images? [y/n]: ')).lower()
     if yes_or_no != 'y':
