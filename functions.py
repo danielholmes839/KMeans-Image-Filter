@@ -60,28 +60,28 @@ def create_classifier(training_pixels, num_clusters):
     return cls
 
 
-# makes predictions for every pixel
 def make_predictions(cls, pixels):
+    """ Decides which cluster each pixel belongs to """
     predictions = cls.predict(pixels)  # returns a list of which cluster each pixel belongs to
 
     return predictions
 
 
-# sort pixels
 def get_sorted_pixels(pixels, predictions, num_clusters):
+    """ Sorts the pixels into separate lists based on which cluster they belong to """
     sorted_pixels = []  # sorted_pixels will have multiple lists representing each cluster of pixels
     for i in range(num_clusters):
         sorted_pixels.append([])
 
-    num_vectors = len(pixels)
-    for i in range(num_vectors):
+    num_pixels = len(pixels)
+    for i in range(num_pixels):
         sorted_pixels[predictions[i]].append(pixels[i])  # add each pixel to the array that represents the cluster it was put into
 
     return sorted_pixels  # return multiple lists of different pixels
 
 
-# get pixels
 def get_avg_pixels(sorted_pixels, num_clusters):
+    """ Gets the avg colour for each cluster of pixels """
     avg_pixels = []
 
     for cluster in range(num_clusters):  # each cluster of pixels
